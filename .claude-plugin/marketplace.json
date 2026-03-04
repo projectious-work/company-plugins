@@ -1,0 +1,13 @@
+{
+  "name": "company-plugin",
+  "owner": {
+    "name": "projectious-work"
+  },
+  "plugins": [
+    {
+      "name": "company-plugin",
+      "source": "./",
+      "description": "Virtual IT company plugin — Developer, PM, Marketing Strategist, and Coach agents for projectious.work"
+    }
+  ]
+}
