@@ -1,0 +1,11 @@
+{
+  "name": "teamwork",
+  "description": "Virtual IT company agents, team orchestration, structured handoffs, and skill creation patterns",
+  "version": "0.1.0",
+  "author": {
+    "name": "projectious.work"
+  },
+  "agents": "./agents/",
+  "skills": "./skills/",
+  "commands": "./commands/"
+}

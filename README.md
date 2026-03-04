@@ -1,56 +1,97 @@
-# company-plugin
+# company-plugins
 
-Virtual IT company plugin for [Claude Code](https://claude.ai/claude-code) — provides agents, commands, and skills for **projectious.work**, an IT consulting company specialising in Agentic AI, Agile, and Cloud.
+Plugin marketplace for [Claude Code](https://claude.ai/claude-code) — provides agents, commands, and skills for **projectious.work**, an IT consulting company specialising in Agentic AI, Agile, and Cloud.
 
-## What's Included
+## Plugins
 
-### Agents
+### `teamwork`
 
-| Agent | Role |
+Virtual IT company agents with team orchestration and structured handoffs.
+
+| Component | Items |
 |---|---|
-| Developer | Coding, architecture, infrastructure, code review |
-| Project Manager | Task tracking, scheduling, milestone management, backlog ownership |
-| Marketing Strategist | Content creation, outreach, positioning, client-facing communication |
-| Coach | Agile coaching, backlog health audits, impediment resolution, standups |
+| Agents | Developer, Project Manager, Marketing Strategist, Coach |
+| Commands | `/team` |
+| Skills | Handoff format, Skill creation (meta-skill) |
 
-### Commands
+### `latex`
 
-| Command | Description |
+Professional PDF document and cheatsheet creation with LuaLaTeX.
+
+| Component | Items |
 |---|---|
-| `/team` | Orchestrate a task across the virtual company |
-| `/excalidraw-diagram` | Create and render technical diagrams |
-| `/latex-document` | Create a LaTeX document |
-| `/latex` | Create a LaTeX document (direct) |
-| `/latex-cheatsheet` | Create a LaTeX cheatsheet |
+| Commands | `/latex`, `/latex-document`, `/latex-cheatsheet` |
+| Skills | LaTeX, LaTeX cheatsheet |
 
-### Skills
+### `excalidraw`
 
-- **Handoff format** — structured inter-agent communication
-- **Excalidraw diagrams** — create and render technical diagrams as Excalidraw JSON + PNG
-- **LaTeX** — professional PDF documents with LuaLaTeX
-- **LaTeX cheatsheet** — dense reference sheets using tcbposter grid layouts
-- **Skill creation** — meta-skill for building new skills (not user-invocable)
+Technical diagram creation with Playwright-based PNG rendering.
+
+| Component | Items |
+|---|---|
+| Commands | `/excalidraw-diagram` |
+| Skills | Excalidraw diagram |
 
 ## Installation
 
-Install via Claude Code marketplace:
+Add the marketplace and install plugins:
 
-```
-/plugin marketplace add projectious-work/company-plugin
+```shell
+/plugin marketplace add projectious-work/company-plugins
+/plugin install teamwork@company-plugins
+/plugin install latex@company-plugins
+/plugin install excalidraw@company-plugins
 ```
 
 ## Setup
 
-Some skills require one-time workspace setup:
+Some plugins require one-time workspace setup:
 
 **Excalidraw renderer:**
 ```bash
-cd .claude/skills/excalidraw-diagram/references && uv sync && uv run playwright install chromium
+cd skills/excalidraw-diagram/references && uv sync && uv run playwright install chromium
 ```
 
 **LaTeX (requires LuaLaTeX + latexmk):**
 ```bash
 cd docs/<name> && latexmk -lualatex -output-directory=out main.tex
+```
+
+## Repository Structure
+
+```
+company-plugins/
+├── .claude-plugin/
+│   └── marketplace.json          # marketplace catalog
+├── plugins/
+│   ├── latex/
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── skills/
+│   │   │   ├── latex/SKILL.md
+│   │   │   └── latex-cheatsheet/SKILL.md
+│   │   └── commands/
+│   │       ├── latex.md
+│   │       ├── latex-document.md
+│   │       └── latex-cheatsheet.md
+│   ├── excalidraw/
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── skills/
+│   │   │   └── excalidraw-diagram/
+│   │   │       ├── SKILL.md
+│   │   │       └── references/
+│   │   └── commands/
+│   │       └── excalidraw-diagram.md
+│   └── teamwork/
+│       ├── .claude-plugin/plugin.json
+│       ├── agents/
+│       ├── skills/
+│       │   ├── handoff-format/SKILL.md
+│       │   └── skill-creation/SKILL.md
+│       └── commands/
+│           └── team.md
+├── README.md
+├── CLAUDE.md
+└── .gitignore
 ```
 
 ## License

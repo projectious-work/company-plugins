@@ -1,0 +1,10 @@
+{
+  "name": "excalidraw",
+  "description": "Create and render technical diagrams as Excalidraw JSON with Playwright-based PNG rendering",
+  "version": "0.1.0",
+  "author": {
+    "name": "projectious.work"
+  },
+  "skills": "./skills/",
+  "commands": "./commands/"
+}

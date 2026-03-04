@@ -1,13 +1,28 @@
 {
-  "name": "company-plugin",
+  "name": "company-plugins",
   "owner": {
     "name": "projectious-work"
   },
+  "metadata": {
+    "description": "Virtual IT company plugins for projectious.work — agents, document creation, and diagram tools",
+    "version": "0.1.0",
+    "pluginRoot": "./plugins"
+  },
   "plugins": [
     {
-      "name": "company-plugin",
-      "source": "./",
-      "description": "Virtual IT company plugin — Developer, PM, Marketing Strategist, and Coach agents for projectious.work"
+      "name": "latex",
+      "source": "./plugins/latex",
+      "description": "LaTeX document and cheatsheet creation with LuaLaTeX"
+    },
+    {
+      "name": "excalidraw",
+      "source": "./plugins/excalidraw",
+      "description": "Create and render technical diagrams as Excalidraw JSON + PNG"
+    },
+    {
+      "name": "teamwork",
+      "source": "./plugins/teamwork",
+      "description": "Virtual IT company agents, team orchestration, and structured handoffs"
     }
   ]
 }
