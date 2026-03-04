@@ -5,7 +5,10 @@
   "author": {
     "name": "projectious.work"
   },
-  "agents": "./agents/",
-  "skills": "./skills/",
-  "commands": "./commands/"
+  "agents": [
+    "./agents/developer.md",
+    "./agents/project-manager.md",
+    "./agents/marketing-strategist.md",
+    "./agents/coach.md"
+  ]
 }
