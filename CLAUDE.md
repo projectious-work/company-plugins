@@ -51,7 +51,10 @@ Semantic versioning (`vMAJOR.MINOR.PATCH`), starting at `v0.1.0`.
 | **Patch** | Fixes, refinements, prompt/skill improvements | At least weekly, PM decides timing |
 
 - Releases are **annotated git tags** on main.
-- **PM owns releases** — decides timing, writes the tag message.
+- **PM owns releases** — decides timing, writes the release notes.
+- Release notes follow the standard format (see internal repo CLAUDE.md):
+  plain language, categorised (New / Improved / Fixed / Notes), concise,
+  value-focused, confident tone. Omit empty sections.
 
 ## Related
 
