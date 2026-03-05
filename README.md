@@ -94,6 +94,30 @@ company-plugins/
 └── .gitignore
 ```
 
+## Contributing
+
+### Branching
+
+All work happens on feature branches named `back-NNN/short-description` (referencing the internal backlog). Branches are merged to `main` with merge commits (no squash) after acceptance criteria are verified by the PM or Coach.
+
+### Versioning
+
+This repo uses [semantic versioning](https://semver.org/) (`vMAJOR.MINOR.PATCH`):
+
+- **Major** — breaking changes to plugin structure or marketplace format
+- **Minor** — new plugin, agent, skill, or command
+- **Patch** — fixes, refinements, prompt improvements (at least weekly)
+
+Releases are annotated git tags on `main`, managed by the PM.
+
+### Testing Changes
+
+After modifying agents, commands, or skills:
+1. Verify YAML frontmatter is valid
+2. Validate the marketplace: `claude plugin validate .` or `/plugin validate .`
+3. Test locally: `/plugin marketplace add ./path/to/company-plugins` then install individual plugins
+4. Ensure each `plugin.json` paths are correct relative to the plugin root
+
 ## License
 
 Proprietary — projectious.work

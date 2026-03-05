@@ -28,6 +28,31 @@ After modifying agents, commands, or skills:
 3. Test locally: `/plugin marketplace add ./path/to/company-plugins` then install individual plugins
 4. Ensure each `plugin.json` paths are correct relative to the plugin root
 
+## Branching & Release Strategy
+
+### Branching
+
+- **`main`** is the stable trunk. All work merges back to main.
+- **Feature branches** per backlog item: `back-NNN/short-description`
+  (e.g., `back-007/sqlite-rag`).
+- Work on feature branches in **worktrees** where practical.
+- **Merge commits** (no squash) to preserve full history. Merge commit message
+  references the `BACK-NNN` ID.
+- **PM or Coach** verifies acceptance criteria and merges to main.
+
+### Releases & Versioning
+
+Semantic versioning (`vMAJOR.MINOR.PATCH`), starting at `v0.1.0`.
+
+| Level | When | Example trigger |
+|---|---|---|
+| **Major** | Breaking change to plugin structure or marketplace format | Incompatible plugin.json schema change |
+| **Minor** | New plugin, new agent, new skill, or new command | Adding sqlite-rag skill |
+| **Patch** | Fixes, refinements, prompt/skill improvements | At least weekly, PM decides timing |
+
+- Releases are **annotated git tags** on main.
+- **PM owns releases** — decides timing, writes the tag message.
+
 ## Related
 
 - **Internal repo:** `projectious-work/internal` — consumes these plugins, hosts backlog, decisions, and project management
