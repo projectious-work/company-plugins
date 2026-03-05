@@ -141,8 +141,7 @@ def render(
         page.goto(template_url)
         page.wait_for_function("window.__moduleReady === true", timeout=30000)
 
-        json_str = json.dumps(data)
-        result = page.evaluate(f"window.renderDiagram({json_str})")
+        result = page.evaluate("(data) => window.renderDiagram(data)", data)
 
         if not result or not result.get("success"):
             error_msg = (
